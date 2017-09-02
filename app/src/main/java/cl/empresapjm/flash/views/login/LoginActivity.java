@@ -1,20 +1,18 @@
-package cl.empresapjm.flash;
+package cl.empresapjm.flash.views.login;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.MotionEvent;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.ResultCodes;
 
 import java.util.Arrays;
 
-public class LoginActivity extends AppCompatActivity {
+import cl.empresapjm.flash.R;
+import cl.empresapjm.flash.views.main.MainActivity;
+
+public class LoginActivity extends AppCompatActivity implements  LoginCallback{
 
     private static final int RC_SIGN_IN = 123;
 
@@ -23,14 +21,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        if (new CurrentUser().getCurrentUser() != null){
-            logged();
-        }else{
-            signUp();
-        }
+        new TipsValidateLogin(this).LoginValidate();
     }
 
-    private void signUp(){
+    public void signUp(){
         startActivityForResult(
                 AuthUI.getInstance()
                         .createSignInIntentBuilder()
@@ -40,6 +34,8 @@ public class LoginActivity extends AppCompatActivity {
                                         new AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build(),
                                         new AuthUI.IdpConfig.Builder(AuthUI.FACEBOOK_PROVIDER).build()/*,
                                         new AuthUI.IdpConfig.Builder(AuthUI.TWITTER_PROVIDER).build()*/))
+                        .setTheme(R.style.LoginTheme)
+                        .setLogo(R.mipmap.logo)
                         .build(),
                 RC_SIGN_IN);
     }
@@ -56,12 +52,12 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-
-    private void logged(){
+    public void logged(){
         Intent intent =  new Intent(this,MainActivity.class);
         startActivity(intent);
         finish();
     }
+
 
 
 }
