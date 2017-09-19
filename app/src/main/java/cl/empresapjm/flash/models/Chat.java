@@ -7,6 +7,7 @@ package cl.empresapjm.flash.models;
 public class Chat {
     private String photo, receiver, key;
     private boolean notification;
+/*    private long timestamp;*/
 
     public Chat() {
     }

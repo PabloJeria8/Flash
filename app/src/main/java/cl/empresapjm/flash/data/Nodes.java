@@ -30,4 +30,6 @@ public class Nodes {
         return chats().child(uid);
     }
 
+    public DatabaseReference messages(String chatId){ return root.child("messages").child(chatId);}
+
 }
