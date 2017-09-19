@@ -8,4 +8,11 @@
     tools:context="cl.empresapjm.flash.views.main.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
+
+    <fragment
+        android:id="@+id/chatsFragment"
+        android:name="cl.empresapjm.flash.views.main.chats.ChatsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 </android.support.constraint.ConstraintLayout>

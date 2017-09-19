@@ -20,21 +20,19 @@
         android:fitsSystemWindows="true"
         android:background="@drawable/side_nav_bar">
 
-
         <fragment
             android:id="@+id/drawerFragment"
             android:name="cl.empresapjm.flash.views.main.drawer.DrawerFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
-
         </android.support.design.widget.NavigationView>
 
-<!--    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hola"
-        android:background="@color/authui_colorAccent"
-        android:gravity="center"/>-->
+    <!--    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Hola"
+            android:background="@color/authui_colorAccent"
+            android:gravity="center"/>-->
 
 </android.support.v4.widget.DrawerLayout>
